@@ -1,57 +1,60 @@
 <template>
-  <div class="max-w-2xl mx-auto flex flex-row justify-between">
+  <!-- <div class="max-w-2xl mx-auto flex flex-row justify-between">
     <div>
       <template v-for="filter in Filters" :key="filter.id">
         <FilterListComponent :name="filter.name" :dropdown-data="filter.list" />
       </template>
     </div>
     <div>
-      <!-- <FilterListComponent /> -->
+      <FilterListComponent />
     </div>
-  </div>
+  </div> -->
   <div>
     <div
       class="mx-auto max-w-2xl py-16 px-4 sm:py-15 sm:px-6 lg:max-w-7xl lg:px-8"
     >
-      <h2 class="text-black text-xl my-1">Products</h2>
+      <h2 class="text-black text-3xl font-medium mt-1 mb-9">
+        Shop by Category
+      </h2>
 
-      <div
-        class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
-      >
-        <a
-          v-for="product in products"
-          :key="product.id"
-          :href="product.href"
-          class="group"
+      <div>
+        <swiper
+          :slides-per-view="6"
+          :space-between="50"
+          :autoplay="true"
+          :modules="[Autoplay]"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
         >
-          <div
-            class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-lg"
-          >
-            <img
-              :src="product.imageSrc"
-              :alt="product.imageAlt"
-              class="h-full w-full object-cover object-center group-hover:opacity-75"
-            />
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">{{ product.name }}</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">
-            {{ product.price }}
-          </p>
-          <button
-            type="button"
-            class="rounded-lg bg-indigo-500 px-5 py-2 text-slate-200 shadow-lg"
-          >
-            Add to cart
-          </button>
-        </a>
+          <swiper-slide v-for="product in products" :key="product.id">
+            <a :href="product.href" class="group">
+              <div
+                class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-lg"
+              >
+                <img
+                  :src="product.imageSrc"
+                  :alt="product.imageAlt"
+                  class="h-full w-full object-cover object-center group-hover:opacity-75"
+                />
+              </div>
+            </a>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import FilterListComponent from "@/components/FilterListComponent.vue";
-import Filters from "@/services/DummyData.js";
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+import { Autoplay } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/autoplay";
+
 const products = [
   {
     id: 1,
@@ -134,4 +137,12 @@ const products = [
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
 ];
+
+const onSwiper = (swiper: any) => {
+  console.log(swiper);
+};
+
+const onSlideChange = () => {
+  console.log("Slide change");
+};
 </script>

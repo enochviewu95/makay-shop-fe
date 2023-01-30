@@ -1,6 +1,6 @@
 <template>
   <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-10xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
@@ -17,15 +17,11 @@
         >
           <div class="flex flex-shrink-0 items-center">
             <img
-              class="block h-8 w-auto lg:hidden"
+              class="hidden h-8 w-auto sm:block"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
               alt="Your Company"
             />
-            <img
-              class="hidden h-8 w-auto lg:block"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-              alt="Your Company"
-            />
+            <h2 class="text-white text-2xl ml-2">Makay's Shop</h2>
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
@@ -42,32 +38,43 @@
                 :aria-current="item.current ? 'page' : undefined"
                 >{{ item.name }}</a
               >
+              <div>
+                <div class="relative rounded-md px-3 max-w-lg">
+                  <input
+                    type="text"
+                    name="search"
+                    id="search"
+                    class="block w-full rounded-md pl-7 pr-12 py-2 sm:text-sm"
+                    placeholder="Search"
+                  />
+                  <div class="absolute inset-y-0 right-5 flex items-center">
+                    <label for="search"
+                      ><FontAwesomeIcon icon="fa-solid fa-magnifying-glass"
+                    /></label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div
-          class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+          class="absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 hidden lg:flex"
         >
-          <button
-            type="button"
-            class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-          >
-            <span class="sr-only">View notifications</span>
-            <BellIcon class="h-6 w-6" aria-hidden="true" />
-          </button>
-
           <!-- Profile dropdown -->
           <Menu as="div" class="relative ml-3">
             <div>
               <MenuButton
                 class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
               >
-                <span class="sr-only">Open user menu</span>
-                <img
-                  class="h-8 w-8 rounded-full"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                />
+                <div class="flex">
+                  <div>
+                    <font-awesome-icon
+                      icon="fa-solid fa-circle-user"
+                      class="text-white text-xl"
+                    />
+                  </div>
+                  <p class="text-white ml-2">Account</p>
+                </div>
               </MenuButton>
             </div>
             <transition
@@ -114,6 +121,15 @@
               </MenuItems>
             </transition>
           </Menu>
+          <div class="mx-3">
+            <a
+              href=""
+              class="text-white flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+            >
+              <font-awesome-icon icon="fa-solid fa-shopping-cart" />
+              <p class="ml-2">Cart</p>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -140,6 +156,7 @@
 </template>
 
 <script setup lang="ts">
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   Disclosure,
   DisclosureButton,
@@ -149,12 +166,12 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/vue";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Category", href: "#", current: true },
+  { name: "Deals", href: "#", current: false },
+  { name: "What's New", href: "#", current: false },
+  { name: "Delivery", href: "#", current: false },
 ];
 </script>
