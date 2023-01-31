@@ -47,7 +47,7 @@
 
 <style scoped>
 .lander {
-  background: url("../assets/images/lander-min.jpg"), rgba(0, 0, 0, 0.6);
+  background: url("../../assets/images/lander-min.jpg"), rgba(0, 0, 0, 0.6);
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: darken;

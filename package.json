@@ -20,6 +20,7 @@
     "@headlessui/vue": "^1.7.8",
     "@heroicons/vue": "^2.0.14",
     "@popperjs/core": "^2.11.6",
+    "awesome-vue-star-rating": "^1.0.9",
     "bootstrap": "^5.2.3",
     "lodash": "^4.17.21",
     "pinia": "^2.0.28",

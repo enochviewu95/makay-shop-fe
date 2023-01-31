@@ -1,10 +1,6 @@
-interface TypeFilter {
-  id: Number;
-  name: string;
-  list: String[];
-}
+import type ITypeFilter from "@/interfaces/TypeFilterInterface";
 
-const filters: TypeFilter[] = [
+const filters: ITypeFilter[] = [
   {
     id: 1,
     name: "City",

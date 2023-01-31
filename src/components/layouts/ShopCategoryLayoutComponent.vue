@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="mx-auto max-w-2xl py-16 px-4 sm:py-15 sm:px-6 lg:max-w-7xl lg:px-8"
+      class="mx-auto max-w-2xl pt-10 px-4 sm:pt-15 sm:px-6 lg:max-w-7xl lg:px-8"
     >
       <h2 class="text-black text-3xl font-medium mt-1 mb-9">
         Shop by Category
@@ -17,24 +17,12 @@
           @slideChange="onSlideChange"
         >
           <swiper-slide v-for="product in products" :key="product.id">
-            <a :href="product.href" class="group">
-              <div
-                class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg my-5 bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-lg"
-              >
-                <div class="w-full absolute top-0 left-0 p-5">
-                  <h2
-                    class="font-semibold text-2xl z-20 group-hover:opacity-20 text-center"
-                  >
-                    {{ product.name }}
-                  </h2>
-                </div>
-                <img
-                  :src="product.imageSrc"
-                  :alt="product.imageAlt"
-                  class="h-full w-full object-cover object-center group-hover:opacity-20"
-                />
-              </div>
-            </a>
+            <category-card-widget-component
+              :href="product.href"
+              :name="product.name"
+              :image-src="product.imageSrc"
+              :image-alt="product.imageAlt"
+            />
           </swiper-slide>
         </swiper>
       </div>
@@ -52,12 +40,14 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-const products = [
+import CategoryCardWidgetComponent from "../widgets/CategoryCardWidgetComponent.vue";
+import type { ICategory } from "@/interfaces/CardInterface";
+
+const products: ICategory[] = [
   {
     id: 1,
     name: "Earthen Bottle",
     href: "#",
-    price: "$48",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
     imageAlt:
@@ -67,7 +57,6 @@ const products = [
     id: 2,
     name: "Nomad Tumbler",
     href: "#",
-    price: "$35",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
     imageAlt:
@@ -138,8 +127,4 @@ const onSlideChange = () => {
 };
 </script>
 
-<style scoped>
-img {
-  height: 20rem;
-}
-</style>
+<style scoped></style>

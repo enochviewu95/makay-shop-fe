@@ -17,21 +17,13 @@
           @slideChange="onSlideChange"
         >
           <swiper-slide v-for="product in products" :key="product.id">
-            <a :href="product.href" class="group">
-              <div
-                class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8"
-              >
-                <img
-                  :src="product.imageSrc"
-                  :alt="product.imageAlt"
-                  class="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 class="mt-4 text-sm text-gray-700">{{ product.name }}</h3>
-              <p class="mt-1 text-lg font-medium text-gray-900">
-                {{ product.price }}
-              </p>
-            </a>
+            <ProductCardWidgetComponent
+              :href="product.href"
+              :name="product.name"
+              :price="product.price"
+              :image-alt="product.imageAlt"
+              :image-src="product.imageSrc"
+            />
           </swiper-slide>
         </swiper>
       </div>
@@ -48,8 +40,10 @@ import { Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/autoplay";
+import ProductCardWidgetComponent from "../widgets/ProductCardWidgetComponent.vue";
+import type { IProducts } from "@/interfaces/CardInterface";
 
-const products = [
+const products: IProducts[] = [
   {
     id: 1,
     name: "Earthen Bottle",
@@ -72,8 +66,9 @@ const products = [
   },
   {
     id: 3,
-    name: "Lorem",
+    name: "Focus Paper Refill",
     href: "#",
+    price: "$89",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     imageAlt:
@@ -81,8 +76,9 @@ const products = [
   },
   {
     id: 4,
-    name: "Ipsum",
+    name: "Machined Mechanical Pencil",
     href: "#",
+    price: "$35",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     imageAlt:
@@ -90,8 +86,9 @@ const products = [
   },
   {
     id: 5,
-    name: "Lorem",
+    name: "Earthen Bottle",
     href: "#",
+    price: "$48",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
     imageAlt:
@@ -99,8 +96,9 @@ const products = [
   },
   {
     id: 6,
-    name: "Lorem",
+    name: "Nomad Tumbler",
     href: "#",
+    price: "$35",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
     imageAlt:
@@ -110,6 +108,7 @@ const products = [
     id: 7,
     name: "Focus Paper Refill",
     href: "#",
+    price: "$89",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     imageAlt:
@@ -117,8 +116,9 @@ const products = [
   },
   {
     id: 8,
-    name: "Machined",
+    name: "Machined Mechanical Pencil",
     href: "#",
+    price: "$35",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     imageAlt:
@@ -135,8 +135,4 @@ const onSlideChange = () => {
 };
 </script>
 
-<style scoped>
-img {
-  height: 20rem;
-}
-</style>
+<style scoped></style>
