@@ -1,8 +1,25 @@
 <template>
   <a :href="href" class="group">
     <div
-      class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8"
+      class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-md"
     >
+      <label
+        :for="id?.toString()"
+        class="rounded-full p-2 bg-slate-200 w-10 h-10 flex justify-center items-center absolute z-10 right-5 top-3"
+      >
+        <font-awesome-icon
+          icon="fa-solid fa-heart"
+          class="text-xl"
+          :class="state.favorite ? 'text-red-400' : 'text-white'"
+        />
+        <input
+          :id="id?.toString()"
+          :name="id?.toString()"
+          type="checkbox"
+          class="absolute hidden"
+          @click="setFavorite"
+        />
+      </label>
       <img
         :src="imageSrc"
         :alt="imageAlt"
@@ -14,7 +31,7 @@
       {{ price }}
     </p>
     <button
-      class="rounded-md shadow-xl bg-slate-500 text-white px-3 py-2 hover:bg-slate-800"
+      class="rounded-md shadow-md bg-slate-500 text-white px-3 py-2 hover:bg-slate-800 mb-8"
     >
       Add To Cart
     </button>
@@ -22,13 +39,25 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { reactive } from "vue";
+
+const productProps = defineProps({
+  id: Number,
   href: String,
   imageSrc: String,
   imageAlt: String,
   name: String,
   price: String,
+  isFavorite: Boolean,
 });
+
+const state = reactive({
+  favorite: productProps.isFavorite,
+});
+
+const setFavorite = (event: any) => {
+  state.favorite = event.target.checked;
+};
 </script>
 
 <style scoped>

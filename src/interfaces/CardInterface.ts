@@ -13,4 +13,5 @@ export interface IProducts {
   imageSrc: string;
   imageAlt: string;
   price: string;
+  isFavorite: boolean;
 }

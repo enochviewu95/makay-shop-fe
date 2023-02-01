@@ -11,18 +11,20 @@
         <swiper
           :slides-per-view="5"
           :space-between="30"
-          :autoplay="true"
-          :modules="[Autoplay]"
+          :modules="[Scrollbar]"
+          :scrollbar="{ draggable: true }"
           @swiper="onSwiper"
           @slideChange="onSlideChange"
         >
           <swiper-slide v-for="product in products" :key="product.id">
             <ProductCardWidgetComponent
+              :id="product.id"
               :href="product.href"
               :name="product.name"
               :price="product.price"
               :image-alt="product.imageAlt"
               :image-src="product.imageSrc"
+              :is-favorite="product.isFavorite"
             />
           </swiper-slide>
         </swiper>
@@ -35,11 +37,11 @@
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import { Autoplay } from "swiper";
+import { Scrollbar } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/autoplay";
+import "swiper/css/scrollbar";
 import ProductCardWidgetComponent from "../widgets/ProductCardWidgetComponent.vue";
 import type { IProducts } from "@/interfaces/CardInterface";
 
@@ -53,6 +55,7 @@ const products: IProducts[] = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+    isFavorite: false,
   },
   {
     id: 2,
@@ -63,6 +66,7 @@ const products: IProducts[] = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
+    isFavorite: true,
   },
   {
     id: 3,
@@ -73,6 +77,7 @@ const products: IProducts[] = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
+    isFavorite: false,
   },
   {
     id: 4,
@@ -83,6 +88,7 @@ const products: IProducts[] = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
+    isFavorite: true,
   },
   {
     id: 5,
@@ -93,6 +99,7 @@ const products: IProducts[] = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+    isFavorite: false,
   },
   {
     id: 6,
@@ -103,6 +110,7 @@ const products: IProducts[] = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
+    isFavorite: true,
   },
   {
     id: 7,
@@ -113,6 +121,7 @@ const products: IProducts[] = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
+    isFavorite: true,
   },
   {
     id: 8,
@@ -123,6 +132,7 @@ const products: IProducts[] = [
       "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
+    isFavorite: false,
   },
 ];
 
