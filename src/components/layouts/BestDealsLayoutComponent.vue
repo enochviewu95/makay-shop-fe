@@ -7,9 +7,33 @@
         Today's Best Deal
       </h2>
 
-      <div>
+      <!-- Desktop view -->
+      <div class="hidden lg:block">
         <swiper
           :slides-per-view="5"
+          :space-between="30"
+          :modules="[Scrollbar]"
+          :scrollbar="{ draggable: true }"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
+        >
+          <swiper-slide v-for="product in products" :key="product.id">
+            <ProductCardWidgetComponent
+              :id="product.id"
+              :href="product.href"
+              :name="product.name"
+              :price="product.price"
+              :image-alt="product.imageAlt"
+              :image-src="product.imageSrc"
+              :is-favorite="product.isFavorite"
+            />
+          </swiper-slide>
+        </swiper>
+      </div>
+      <!-- Mobile View -->
+      <div class="lg:hidden">
+        <swiper
+          :slides-per-view="2"
           :space-between="30"
           :modules="[Scrollbar]"
           :scrollbar="{ draggable: true }"
@@ -81,7 +105,7 @@ const products: IProducts[] = [
   },
   {
     id: 4,
-    name: "Machined Mechanical Pencil",
+    name: "Machined Mech. Pencil",
     href: "#",
     price: "$35",
     imageSrc:

@@ -5,7 +5,7 @@
     >
       <label
         :for="id?.toString()"
-        class="rounded-full p-2 bg-slate-200 w-10 h-10 flex justify-center items-center absolute z-10 right-5 top-3"
+        class="rounded-full p-2 bg-slate-200 w-10 h-10 flex justify-center items-center absolute z-10 right-3 top-2"
       >
         <font-awesome-icon
           icon="fa-solid fa-heart"
@@ -62,6 +62,6 @@ const setFavorite = (event: any) => {
 
 <style scoped>
 img {
-  height: 20rem;
+  height: 15rem;
 }
 </style>
