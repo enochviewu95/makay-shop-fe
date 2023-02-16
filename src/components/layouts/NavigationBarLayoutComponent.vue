@@ -1,7 +1,7 @@
 <template>
   <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
     <div class="mx-auto max-w-10xl px-2 sm:px-6 lg:px-8">
-      <div class="relative flex h-16 items-center justify-between">
+      <div class="relative flex h-16 items-center">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <DisclosureButton
@@ -13,7 +13,7 @@
           </DisclosureButton>
         </div>
         <div
-          class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+          class="flex flex-1 lg:flex-none items-center justify-center sm:items-stretch sm:justify-start"
         >
           <div class="flex flex-shrink-0 items-center">
             <img
@@ -21,44 +21,42 @@
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
               alt="Your Company"
             />
-            <h2 class="text-white text-2xl ml-2">Makay's Shop</h2>
+            <h2 class="text-white text-xl ml-2">Makay's Shop</h2>
           </div>
-          <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
-              <a
-                v-for="item in navigation"
-                :key="item.name"
-                :href="item.href"
-                :class="[
-                  item.current
-                    ? 'bg-gray-900 text-white'
-                    : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                  'px-3 py-2 rounded-md text-sm font-medium',
-                ]"
-                :aria-current="item.current ? 'page' : undefined"
-                >{{ item.name }}</a
-              >
-              <div>
-                <div class="relative rounded-md px-3 w-[30rem]">
-                  <input
-                    type="text"
-                    name="search"
-                    id="search"
-                    class="block w-full rounded-md pl-7 pr-12 py-2 sm:text-sm"
-                    placeholder="Search"
-                  />
-                  <div class="absolute inset-y-0 right-5 flex items-center">
-                    <label for="search"
-                      ><FontAwesomeIcon icon="fa-solid fa-magnifying-glass"
-                    /></label>
-                  </div>
-                </div>
+        </div>
+        <div class="flex-1 hidden sm:ml-6 lg:block justify-self-start">
+          <div class="flex space-x-2">
+            <a
+              v-for="item in navigation"
+              :key="item.name"
+              :href="item.href"
+              :class="[
+                item.current
+                  ? 'bg-gray-900 text-white'
+                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                'px-3 py-2 rounded-md text-sm font-medium',
+              ]"
+              :aria-current="item.current ? 'page' : undefined"
+              >{{ item.name }}</a
+            >
+            <div class="relative rounded-md px-3 flex-1">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                class="w-full rounded-md pl-7 pr-12 py-2 sm:text-sm"
+                placeholder="Search"
+              />
+              <div class="absolute inset-y-0 right-5 flex items-center">
+                <label for="search"
+                  ><FontAwesomeIcon icon="fa-solid fa-magnifying-glass"
+                /></label>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 hidden lg:flex"
+          class="justify-self-end absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 hidden lg:flex"
         >
           <!-- Profile dropdown -->
           <Menu as="div" class="relative ml-3">

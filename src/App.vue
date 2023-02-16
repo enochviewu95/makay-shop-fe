@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import NavigationBar from "./components/layouts/NavigationBarLayoutComponent.vue";
-import LandingComponent from "./components/layouts/LandingLayoutComponent.vue";
 import FooterComponent from "./components/layouts/FooterLayoutComponent.vue";
 </script>
 
 <template>
   <header>
     <NavigationBar />
-    <LandingComponent />
   </header>
   <main class="bg-slate-200">
     <RouterView />
