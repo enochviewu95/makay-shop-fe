@@ -15,3 +15,10 @@ export interface IProducts {
   price: string;
   isFavorite: boolean;
 }
+
+export interface ITrendingProducts {
+  id: number;
+  href: string;
+  imageSrc: string;
+  title: string;
+}

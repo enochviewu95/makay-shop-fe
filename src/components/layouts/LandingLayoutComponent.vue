@@ -1,4 +1,3 @@
-<!-- This example requires Tailwind CSS v3.0+ -->
 <template>
   <div class="isolate bg-white lander">
     <div>
