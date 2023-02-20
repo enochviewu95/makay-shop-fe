@@ -6,9 +6,10 @@
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-4">
       <template v-for="discount of discountsCategorgy" :key="discount.id">
         <div>
-          <DiscountCardWidgetComponent
+          <DiscountServicesCardWidgetComponent
             :image-src="discount.imageSrc"
             :header-color="discount.headerColor"
+            :price="discount.price"
           />
         </div>
       </template>
@@ -17,32 +18,36 @@
 </template>
 
 <script setup lang="ts">
-import DiscountCardWidgetComponent from "../widgets/DiscountCardWidgetComponent.vue";
+import DiscountServicesCardWidgetComponent from "../widgets/DiscountServicesCardWidgetComponent.vue";
 
 const discountsCategorgy = [
   {
     id: 0,
     imageSrc:
-      "https://images.pexels.com/photos/5121738/pexels-photo-5121738.jpeg",
+      "https://images.pexels.com/photos/5121738/pexels-photo-5121738.jpeg?auto=compress&cs=tinysrgb&w=327&h=460&dpr=1",
     headerColor: "#e9136342",
+    price: "10.00",
   },
   {
     id: 1,
     imageSrc:
-      "https://images.pexels.com/photos/4452520/pexels-photo-4452520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/4452520/pexels-photo-4452520.jpeg?auto=compress&cs=tinysrgb&w=327&h=460&dpr=1",
     headerColor: "#79554842",
+    price: "50.00",
   },
   {
     id: 2,
     imageSrc:
-      "https://images.pexels.com/photos/3908800/pexels-photo-3908800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/3908800/pexels-photo-3908800.jpeg?auto=compress&cs=tinysrgb&w=327&h=460&dpr=1",
     headerColor: "#ffc10742",
+    price: "20.00",
   },
   {
     id: 3,
     imageSrc:
-      "https://images.pexels.com/photos/8839887/pexels-photo-8839887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/8839887/pexels-photo-8839887.jpeg?auto=compress&cs=tinysrgb&w=327&h=460&dpr=1",
     headerColor: "#00000042",
+    price: "50.00",
   },
 ];
 </script>

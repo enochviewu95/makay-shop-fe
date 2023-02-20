@@ -7,6 +7,7 @@
         :src="imageSrc"
         :alt="imageAlt"
         class="h-full w-full object-cover object-center group-hover:opacity-75"
+        rel="preload"
       />
     </div>
     <div

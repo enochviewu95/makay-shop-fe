@@ -14,6 +14,7 @@
         :src="imageSrc"
         :alt="imageAlt"
         class="h-full w-full object-cover object-center group-hover:opacity-20"
+        rel="preload"
       />
     </div>
   </a>

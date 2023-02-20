@@ -24,6 +24,7 @@
         :src="imageSrc"
         :alt="imageAlt"
         class="h-full w-full object-cover object-center group-hover:opacity-75"
+        rel="preload"
       />
     </div>
     <h3 class="mt-4 text-sm text-gray-700">{{ name }}</h3>
