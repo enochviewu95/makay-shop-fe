@@ -22,3 +22,14 @@ export interface ITrendingProducts {
   imageSrc: string;
   title: string;
 }
+
+export interface IBrands {
+  id: number;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+  title: string;
+  brandLogoSrc: string;
+  brandsLogoAlt: string;
+  speciality: string[];
+}

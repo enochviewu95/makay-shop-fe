@@ -1,7 +1,7 @@
 <template>
   <a :href="href" class="group">
     <div
-      class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-md"
+      class="aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-md"
     >
       <label
         :for="id?.toString()"

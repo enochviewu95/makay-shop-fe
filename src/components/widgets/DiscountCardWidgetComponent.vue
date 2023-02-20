@@ -1,8 +1,14 @@
 <template>
   <a :href="href" class="group">
-    <div class="bg-orange-400 p-5 rounded-t-xl">
-      <h2 class="textxl font-bold">Save</h2>
-      <h1 class="font-extrabold text-2xl"><sup>GHS</sup>100</h1>
+    <div
+      class="p-5 rounded-t-xl h-40"
+      :style="{ backgroundColor: headerColor }"
+    >
+      <h1 v-if="title" class="font-medium text-2xl mb-3">{{ title }}</h1>
+      <div v-else>
+        <h2 class="textxl font-bold">Save</h2>
+        <h1 class="font-medium text-2xl"><sup>GHS</sup>{{ price }}</h1>
+      </div>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque,
         blanditiis.
@@ -23,9 +29,11 @@
 <script setup lang="ts">
 defineProps({
   href: String,
-  name: String,
+  title: String,
+  price: String,
   imageSrc: String,
   imageAlt: String,
+  headerColor: String,
 });
 </script>
 

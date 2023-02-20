@@ -84,11 +84,11 @@
           <p class="text-lg text-slate-400">
             Monthly digest of what's new and exciting from us.
           </p>
-          <div class="flex items-center justify-between">
+          <div class="flex items-start flex-col">
             <input
               id="newsletter1"
               type="text"
-              class="rounded-md shadow-md bg-white p-2"
+              class="rounded-md shadow-md bg-white p-2 mb-2"
               placeholder="Email address"
             />
             <button

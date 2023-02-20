@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 // eslint-disable-next-line no-undef
 module.exports = {
@@ -5,5 +6,8 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: ["@tailwindcss/aspect-ratio", "@tailwindcsss/forms"],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

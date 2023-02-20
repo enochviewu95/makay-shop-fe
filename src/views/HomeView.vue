@@ -9,6 +9,8 @@
   <CollectionLayoutComponent />
   <MostSellingLayoutComponent />
   <TrendingLayoutComponent />
+  <BestSellingStoreLayoutComponent />
+  <ServicesLayoutComponent />
 </template>
 
 <script setup lang="ts">
@@ -22,6 +24,8 @@ import TodaysBestDealLayoutComponent from "@/components/layouts/TodaysBestDealLa
 import CollectionLayoutComponent from "@/components/layouts/CollectionLayoutComponent.vue";
 import MostSellingLayoutComponent from "@/components/layouts/MostSellingLayoutComponent.vue";
 import TrendingLayoutComponent from "@/components/layouts/TrendingLayoutComponent.vue";
+import BestSellingStoreLayoutComponent from "@/components/layouts/BestSellingStoreLayoutComponent.vue";
+import ServicesLayoutComponent from "@/components/layouts/ServicesLayoutComponent.vue";
 </script>
 
 <style scoped></style>
