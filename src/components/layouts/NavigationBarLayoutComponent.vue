@@ -22,7 +22,8 @@
               alt="Your Company"
             />
             <router-link as="a" to="/" class="text-white text-xl ml-2"
-              >Makay's Shop</router-link>
+              >Makay's Shop</router-link
+            >
           </div>
         </div>
         <div class="flex-1 hidden sm:ml-6 lg:block justify-self-start">
