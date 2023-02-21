@@ -1,5 +1,6 @@
 <template>
-  <a :href="href" class="group">
+  <!-- :href="href" -->
+  <router-link class="group" to="/product">
     <div
       class="aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-md"
     >
@@ -36,11 +37,12 @@
     >
       Add To Cart
     </button>
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">
 import { reactive } from "vue";
+import { RouterLink } from "vue-router";
 
 const productProps = defineProps({
   id: Number,
