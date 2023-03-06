@@ -1,8 +1,8 @@
 <template>
   <!-- :href="href" -->
-  <router-link class="group" to="/product">
+  <div class="group">
     <div
-      class="aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-md"
+      class="aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 shadow-md"
     >
       <label
         :for="id?.toString()"
@@ -21,14 +21,18 @@
           @click="setFavorite"
         />
       </label>
-      <img
-        :src="imageSrc"
-        :alt="imageAlt"
-        class="h-full w-full object-cover object-center group-hover:opacity-75"
-        rel="preload"
-      />
+      <router-link to="/product">
+        <img
+          :src="imageSrc"
+          :alt="imageAlt"
+          class="h-full w-full object-cover object-center group-hover:opacity-75"
+          rel="preload"
+        />
+      </router-link>
     </div>
-    <h3 class="mt-4 text-sm text-gray-700">{{ name }}</h3>
+    <router-link to="/product">
+      <h3 class="mt-4 text-sm text-gray-700 hover:text-gray-400">{{ name }}</h3>
+    </router-link>
     <p class="mt-1 text-lg font-medium text-gray-900">
       {{ price }}
     </p>
@@ -37,7 +41,7 @@
     >
       Add To Cart
     </button>
-  </router-link>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -58,8 +62,9 @@ const state = reactive({
   favorite: productProps.isFavorite,
 });
 
-const setFavorite = (event: any) => {
-  state.favorite = event.target.checked;
+const setFavorite = (event: MouseEvent) => {
+  const inputField = event.target as HTMLInputElement;
+  state.favorite = inputField.checked;
 };
 </script>
 

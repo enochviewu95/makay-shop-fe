@@ -13,8 +13,6 @@
           :space-between="30"
           :autoplay="true"
           :modules="[Autoplay]"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
         >
           <swiper-slide v-for="product in products" :key="product.id">
             <category-card-widget-component
@@ -32,8 +30,6 @@
           :space-between="30"
           :autoplay="true"
           :modules="[Autoplay]"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
         >
           <swiper-slide v-for="product in products" :key="product.id">
             <category-card-widget-component
@@ -137,13 +133,6 @@ const products: ICategory[] = [
   },
 ];
 
-const onSwiper = (swiper: any) => {
-  console.log(swiper);
-};
-
-const onSlideChange = () => {
-  console.log("Slide change");
-};
 </script>
 
 <style scoped></style>

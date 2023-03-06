@@ -14,8 +14,6 @@
           :space-between="30"
           :modules="[Scrollbar]"
           :scrollbar="{ draggable: true }"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
         >
           <swiper-slide v-for="product in products" :key="product.id">
             <ProductCardWidgetComponent
@@ -37,8 +35,6 @@
           :space-between="30"
           :modules="[Scrollbar]"
           :scrollbar="{ draggable: true }"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
         >
           <swiper-slide v-for="product in products" :key="product.id">
             <ProductCardWidgetComponent
@@ -159,14 +155,6 @@ const products: IProducts[] = [
     isFavorite: false,
   },
 ];
-
-const onSwiper = (swiper: any) => {
-  console.log(swiper);
-};
-
-const onSlideChange = () => {
-  console.log("Slide change");
-};
 </script>
 
 <style scoped></style>
