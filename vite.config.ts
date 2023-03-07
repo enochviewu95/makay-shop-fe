@@ -6,8 +6,8 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/makay-shop-fe/",
   plugins: [vue()],
+  base: "makay-shop-fe",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
