@@ -122,13 +122,14 @@
             </transition>
           </Menu>
           <div class="mx-3">
-            <a
-              href=""
+            <RouterLink
+              as="a"
+              to="/cart"
               class="text-white flex justify-items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
             >
               <font-awesome-icon icon="fa-solid fa-shopping-cart text-xl" />
               <p class="ml-2">Cart</p>
-            </a>
+            </RouterLink>
           </div>
         </div>
       </div>
