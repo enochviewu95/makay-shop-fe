@@ -1,137 +1,31 @@
 <template>
-  <div class="max-w-2xl mx-auto flex flex-row justify-between">
-    <div>
-      <template v-for="filter in Filters" :key="filter.id">
-        <FilterListComponent :name="filter.name" :dropdown-data="filter.list" />
-      </template>
-    </div>
-    <div>
-      <!-- <FilterListComponent /> -->
-    </div>
-  </div>
-  <div>
-    <div
-      class="mx-auto max-w-2xl py-16 px-4 sm:py-15 sm:px-6 lg:max-w-7xl lg:px-8"
-    >
-      <h2 class="text-black text-xl my-1">Products</h2>
-
-      <div
-        class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
-      >
-        <a
-          v-for="product in products"
-          :key="product.id"
-          :href="product.href"
-          class="group"
-        >
-          <div
-            class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 shadow-lg"
-          >
-            <img
-              :src="product.imageSrc"
-              :alt="product.imageAlt"
-              class="h-full w-full object-cover object-center group-hover:opacity-75"
-            />
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">{{ product.name }}</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">
-            {{ product.price }}
-          </p>
-          <button
-            type="button"
-            class="rounded-lg bg-indigo-500 px-5 py-2 text-slate-200 shadow-lg"
-          >
-            Add to cart
-          </button>
-        </a>
-      </div>
-    </div>
-  </div>
+  <LandingComponent />
+  <ShopCategoryLayoutComponent />
+  <BestDealsLayoutComponent />
+  <DiscountLayoutComponent />
+  <WeeklyPopularProductsLayoutComponent />
+  <HeroLayoutComponent />
+  <TodaysBestDealLayoutComponent />
+  <CollectionLayoutComponent />
+  <MostSellingLayoutComponent />
+  <TrendingLayoutComponent />
+  <BestSellingStoreLayoutComponent />
+  <ServicesLayoutComponent />
 </template>
 
 <script setup lang="ts">
-import FilterListComponent from "@/components/FilterListComponent.vue";
-import Filters from "@/services/DummyData.js";
-const products = [
-  {
-    id: 1,
-    name: "Earthen Bottle",
-    href: "#",
-    price: "$48",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
-    imageAlt:
-      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-  },
-  {
-    id: 2,
-    name: "Nomad Tumbler",
-    href: "#",
-    price: "$35",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
-    imageAlt:
-      "Olive drab green insulated bottle with flared screw lid and flat top.",
-  },
-  {
-    id: 3,
-    name: "Focus Paper Refill",
-    href: "#",
-    price: "$89",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
-    imageAlt:
-      "Person using a pen to cross a task off a productivity paper card.",
-  },
-  {
-    id: 4,
-    name: "Machined Mechanical Pencil",
-    href: "#",
-    price: "$35",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
-    imageAlt:
-      "Hand holding black machined steel mechanical pencil with brass tip and top.",
-  },
-  {
-    id: 5,
-    name: "Earthen Bottle",
-    href: "#",
-    price: "$48",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
-    imageAlt:
-      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-  },
-  {
-    id: 6,
-    name: "Nomad Tumbler",
-    href: "#",
-    price: "$35",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
-    imageAlt:
-      "Olive drab green insulated bottle with flared screw lid and flat top.",
-  },
-  {
-    id: 7,
-    name: "Focus Paper Refill",
-    href: "#",
-    price: "$89",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
-    imageAlt:
-      "Person using a pen to cross a task off a productivity paper card.",
-  },
-  {
-    id: 8,
-    name: "Machined Mechanical Pencil",
-    href: "#",
-    price: "$35",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
-    imageAlt:
-      "Hand holding black machined steel mechanical pencil with brass tip and top.",
-  },
-];
+import LandingComponent from "../components/layouts/LandingLayoutComponent.vue";
+import ShopCategoryLayoutComponent from "../components/layouts/ShopCategoryLayoutComponent.vue";
+import BestDealsLayoutComponent from "../components/layouts/BestDealsLayoutComponent.vue";
+import DiscountLayoutComponent from "../components/layouts/DiscountLayoutComponent.vue";
+import WeeklyPopularProductsLayoutComponent from "@/components/layouts/WeeklyPopularProductsLayoutComponent.vue";
+import HeroLayoutComponent from "@/components/layouts/HeroLayoutComponent.vue";
+import TodaysBestDealLayoutComponent from "@/components/layouts/TodaysBestDealLayoutComponent.vue";
+import CollectionLayoutComponent from "@/components/layouts/CollectionLayoutComponent.vue";
+import MostSellingLayoutComponent from "@/components/layouts/MostSellingLayoutComponent.vue";
+import TrendingLayoutComponent from "@/components/layouts/TrendingLayoutComponent.vue";
+import BestSellingStoreLayoutComponent from "@/components/layouts/BestSellingStoreLayoutComponent.vue";
+import ServicesLayoutComponent from "@/components/layouts/ServicesLayoutComponent.vue";
 </script>
+
+<style scoped></style>
