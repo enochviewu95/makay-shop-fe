@@ -38,6 +38,7 @@
     </p>
     <button
       class="rounded-md shadow-md bg-slate-500 text-white px-3 py-2 hover:bg-slate-800 mb-8"
+      @click="addToCart"
     >
       Add To Cart
     </button>
@@ -45,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+import router from "@/router";
 import { reactive } from "vue";
 import { RouterLink } from "vue-router";
 
@@ -65,6 +67,10 @@ const state = reactive({
 const setFavorite = (event: MouseEvent) => {
   const inputField = event.target as HTMLInputElement;
   state.favorite = inputField.checked;
+};
+
+const addToCart = () => {
+  router.push({ path: "/cart" });
 };
 </script>
 
