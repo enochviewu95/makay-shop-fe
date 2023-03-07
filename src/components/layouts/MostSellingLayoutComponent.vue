@@ -155,7 +155,6 @@ const products: IProducts[] = [
     isFavorite: false,
   },
 ];
-
 </script>
 
 <style scoped></style>

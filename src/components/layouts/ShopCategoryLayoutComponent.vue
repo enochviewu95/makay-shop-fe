@@ -132,7 +132,6 @@ const products: ICategory[] = [
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
 ];
-
 </script>
 
 <style scoped></style>
