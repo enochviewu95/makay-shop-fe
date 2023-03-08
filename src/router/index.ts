@@ -4,6 +4,7 @@ import DetailsView from "../views/DetailsView.vue";
 import CartView from "../views/CartView.vue";
 import CategoryView from "../views/CategoryView.vue";
 import LoginView from "../views/LoginView.vue";
+import DashboardView from "../views/DashboardView.vue";
 import TestingView from "../views/TestingView.vue";
 
 const router = createRouter({
@@ -33,6 +34,11 @@ const router = createRouter({
       path: "/login",
       name: "login",
       component: LoginView,
+    },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: DashboardView,
     },
     {
       path: "/test",
