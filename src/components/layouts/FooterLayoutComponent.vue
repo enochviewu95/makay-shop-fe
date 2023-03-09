@@ -2,7 +2,7 @@
   <div
     class="flex flex-col mx-auto max-w-2xl pt-15 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
   >
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-1">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-1">
       <div class="mb-3">
         <h5 class="text-lg sm:text-xl font-semibold">Section</h5>
         <ul class="nav flex-col">

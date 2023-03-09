@@ -291,7 +291,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/vue/20/solid";
-import CategoryComponentLayout from "../components/layouts/CategoryLayoutComponent.vue";
+import CategoryComponentLayout from "../../components/layouts/CategoryLayoutComponent.vue";
 import PaginationWidgetComponent from "@/components/widgets/PaginationWidgetComponent.vue";
 
 const sortOptions = [

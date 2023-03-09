@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import DetailsView from "../views/DetailsView.vue";
-import CartView from "../views/CartView.vue";
-import CategoryView from "../views/CategoryView.vue";
-import LoginView from "../views/LoginView.vue";
-import DashboardView from "../views/DashboardView.vue";
+import StoreViewIndex from "../views/store/StoreViewIndex.vue";
+import RegistrationViewIndex from "../views/registration/RegistrationViewIndex.vue";
+import DashboardViewIndex from "../views/dashboard/DashboardViewIndex.vue";
+import HomeView from "../views/store/HomeView.vue";
+import DetailsView from "../views/store/DetailsView.vue";
+import CartView from "../views/store/CartView.vue";
+import CategoryView from "../views/store/CategoryView.vue";
+import LoginView from "../views/registration/LoginView.vue";
+import DashboardView from "../views/dashboard/DashboardView.vue";
 import TestingView from "../views/TestingView.vue";
 
 const router = createRouter({
@@ -12,38 +15,56 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
+      component: StoreViewIndex,
+      children: [
+        {
+          path: "",
+          name: "Home",
+          component: HomeView,
+        },
+        {
+          path: "product",
+          name: "product",
+          component: DetailsView,
+        },
+        {
+          path: "cart",
+          name: "cart",
+          component: CartView,
+        },
+        {
+          path: "category",
+          name: "category",
+          component: CategoryView,
+        },
+        {
+          path: "test",
+          name: "test",
+          component: TestingView,
+        },
+      ],
     },
     {
-      path: "/product",
-      name: "product",
-      component: DetailsView,
-    },
-    {
-      path: "/cart",
-      name: "cart",
-      component: CartView,
-    },
-    {
-      path: "/category",
-      name: "category",
-      component: CategoryView,
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: LoginView,
+      path: "/registration",
+      component: RegistrationViewIndex,
+      children: [
+        {
+          path: "",
+          name: "login",
+          component: LoginView,
+        },
+      ],
     },
     {
       path: "/dashboard",
-      name: "dashboard",
-      component: DashboardView,
-    },
-    {
-      path: "/test",
-      name: "test",
-      component: TestingView,
+      component: DashboardViewIndex,
+      children: [
+        {
+          path: "",
+          name: "dashboard",
+          component: DashboardView,
+        },
+      ],
     },
   ],
 });
